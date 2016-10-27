@@ -46,6 +46,22 @@ public class InterestTable {
 		return str;
 	}
 	
+	public String bothInterest() {
+		String str = "";
+		
+		str += "Principal: " + formatDollar(principal) + ", Rate: " + rate;
+		str += "\nYear, Simple Interest Amount, Compound Interest Amount";
+		
+		ArrayList<Double> simpleValues = getSimpleInterestValues();
+		ArrayList<Double> compoundValues = getCompoundInterestValues();
+		
+		for(int i = 0; i < compoundValues.size(); i++){
+			str += "\n" + (i + 1) + "-->" + formatDollar(simpleValues.get(i)) + "-->" + formatDollar(compoundValues.get(i));
+		}
+		
+		return str;
+	}
+	
 	private ArrayList<Double> getSimpleInterestValues() {
 		ArrayList<Double> interests = new ArrayList<Double>();
 		
